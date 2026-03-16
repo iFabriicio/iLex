@@ -1,0 +1,1557 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>XatSpace – Jefa</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  height:100vh;
+  font-family:'Poppins',sans-serif;
+
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url("https://i.imgur.com/HRDw2tY.gif");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+}
+
+/* CONTENEDOR PRINCIPAL */
+.wrapper{
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+/* BOTONES PEGADOS A LA CARD */
+.menu-left{
+  position:absolute;
+  left:-100px;       /* pegado a la card */
+  top:36%;
+  transform:translateY(-50%);
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  z-index:10;
+}
+
+.menu-left a{
+  position:relative;
+  width:110px;
+  padding:10px 0;
+  text-align:center;
+
+  background:rgba(214, 214, 214, 0.712);
+  backdrop-filter:blur(14px);
+
+  border-radius:10px;
+  border:1px solid rgba(184, 184, 184, 0.35); /* 👈 BORDE */
+  
+  font-size:13px;
+  color:#2c2c2c;
+  text-decoration:none;
+
+  box-shadow:
+    inset 0 0 1px rgba(214, 214, 214, 0.6),  /* brillo glass */
+    0 4px 10px rgba(124, 124, 124, 0.25);
+
+  transition:transform .25s ease,
+             box-shadow .25s ease,
+             border-color .25s ease;
+
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+
+.menu-left a::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(
+    135deg,
+    rgb(218, 218, 218),
+    rgb(155, 155, 155),
+    rgb(226, 226, 226)
+  );
+  opacity:0;
+  transition:opacity .15s ease;
+}
+
+
+
+.menu-left a:hover{
+  transform:translateX(-10px);
+  box-shadow:0 2px 2px rgba(226, 226, 226, 0.795);
+}
+
+.menu-left a:hover::after{
+  opacity:0;
+}
+
+
+.menu-left a:active::before{
+  opacity:0;
+}
+
+
+/* TARJETA */
+.card{
+  position:relative;
+  width:420px;
+  height:560px;
+  border-radius:30px;
+  background:rgba(61, 61, 61, 0.514);
+  backdrop-filter:blur(20px);
+  box-shadow:0 15px 10px rgba(114, 114, 114, 0.486);
+  z-index:2;
+  overflow:hidden; /* IMPORTANTE */
+}
+
+/* BORDE INTERNO */
+.card::before{
+  content:"";
+  position:absolute;
+  inset:14px;                 /* separación del borde */
+  border-radius:22px;
+  border:1.5px solid rgba(255,255,255,.75);
+  pointer-events:none;
+}
+
+
+
+
+
+.avatar{
+  position:absolute;
+  top:20px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:160px;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid rgba(255,255,255,.8);
+}
+
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.name{
+  position:absolute;
+  top:230px;
+  left:50%;
+  transform:translateX(-50%);
+  font-family:'Playfair Display',serif;
+  font-size:28px;
+
+  /* degradado */
+  background: linear-gradient(
+    90deg,
+    #e2e2e2,
+    #e0e0e0,
+    #929292,
+    #dddddd
+  );
+  background-size:200% auto;
+
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  /* brillo neon (lo mantenemos) */
+  text-shadow:
+    0 0 6px rgba(236, 236, 236, 0.8),
+    0 0 12px rgba(197, 197, 197, 0.7),
+    0 0 22px rgba(218, 218, 218, 0.6),
+    0 0 40px rgba(197, 197, 197, 0.5);
+
+  animation: gradientMove 5s linear infinite;
+}
+
+@keyframes gradientMove{
+  to{
+    background-position:200% center;
+  }
+}
+/* animación del brillo */
+@keyframes brilloNombre{
+  to{
+    background-position:200% center;
+  }
+}
+
+
+.subtitle{
+  position:absolute;
+  top:280px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:13px;
+  color:#dfdfdf;
+}
+
+
+.bio{
+  position:absolute;
+  top:315px;
+  left:50%;
+  transform:translateX(-50%);
+  width:80%;
+ white-space: pre-wrap; /* permite saltos y wrapping natural */
+
+  padding:14px 16px;                 /* espacio interno del texto */
+  font-size:11px;
+  line-height:1.6;
+  color:#e4e4e4;
+   text-align:center;
+  background:rgba(163, 163, 163, 0.596);  /* fondo suave */
+  backdrop-filter:blur(10px);
+  border-radius:16px;
+
+  box-shadow:0 2px 4px rgba(41, 41, 41, 0.12);
+}
+
+
+
+/* FIRMA */
+.firma{
+  position:absolute;
+  bottom:40px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+
+.firma img{
+  max-width:280px;
+}
+
+/* FOOTER */
+.footer{
+  position:absolute;
+  bottom:30px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:8px;
+  color:#e2e2e2aa;
+}
+
+/* OVERLAY */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+
+  /* MÁS TRANSPARENTE */
+  background: rgba(26, 26, 26, 0.08);
+
+  /* BLUR MÁS SUAVE */
+  backdrop-filter: blur(7px);
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
+  z-index:999;
+}
+
+
+/* ACTIVO */
+.modal-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* CONTENIDO */
+.modal-content{
+  position:relative;
+  width:90%;
+  max-width:650px;
+  height:530px;
+  border-radius:20px;
+  overflow:visible;   /* ✅ CLAVE */
+   box-shadow:0 0 40px rgba(192, 192, 192, 0.466);
+  animation:zoomIn .35s ease;
+}
+
+
+.modal-content::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:25px;
+  border:3px solid rgba(255, 255, 255, 0.9);
+  pointer-events:none;
+
+  box-shadow:
+    0 0 25px rgba(194, 194, 194, 0.9),
+    0 0 60px rgba(148, 148, 148, 0.5);
+}
+
+
+/* IFRAME */
+.modal-content iframe{
+  width:100%;
+  height:100%;
+  border:none;
+  border-radius:20px;
+  overflow:hidden;
+}
+
+
+/* BOTÓN CERRAR */
+.modal-close{
+  position:absolute;
+  top:7px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(224, 224, 224, 0.75);
+  backdrop-filter:blur(8px);
+  color:#2b2b2b;
+  font-size:22px;
+  font-weight:600;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  z-index:1000;
+  box-shadow:0 6px 18px rgba(90, 90, 90, 0.45);
+  transition:.25s ease;
+}
+
+.modal-close:hover{
+  background:#d6d6d6;
+  transform:scale(1.15);
+}
+
+
+@keyframes zoomIn{
+  from{transform:scale(.85); opacity:0}
+  to{transform:scale(1); opacity:1}
+}
+
+#heartsCanvas{
+  position:fixed;
+  inset:0;
+  z-index:0;            /* detrás de todo */
+  pointer-events:none;  /* no molesta clicks */
+}
+
+/* ===============================
+   🎧 PLAYER LATERAL SHULA
+   =============================== */
+
+.player-slide{
+  position:absolute;
+  top:670px;
+  right:0;
+  transform: translateX(260px); /* OCULTO */
+  width:200px;
+  height:100px;
+  display:flex;
+  align-items:center;
+  transition: transform .6s cubic-bezier(.4,0,.2,1);
+  z-index:10060;
+}
+
+.player-slide.active{
+  transform: translateX(0); /* VISIBLE */
+}
+
+
+
+.player-tab{
+  width:40px;
+  height:120px;
+  background: linear-gradient(180deg,#dddddd,#9292927a);
+  border-radius:15px 0 0 15px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:22px;
+  cursor:pointer;
+  box-shadow:0 0 25px rgba(238, 238, 238, 0.6);
+}
+
+.player-glass{
+  width:200px;
+  height:40%;
+  padding:4px;
+  background: rgba(211, 211, 211, 0.575);
+  backdrop-filter: blur(18px);
+
+  border-radius:20px;                     /* ✔ bordes iguales */
+  border:1px solid rgba(255,255,255,.25);
+  margin-left:-1px;                       /* ✔ unión perfecta */
+
+  box-shadow:
+    inset 0 0 20px rgba(255,255,255,.15),
+    0 0 40px rgba(182, 182, 182, 0.45);
+}
+
+
+.music-title{
+  font-size:11px;
+  letter-spacing:2px;
+  color:#ececec;
+  text-transform:uppercase;
+  margin-bottom:6px;
+  text-align:center;
+}
+
+.animated-song{
+  font-size:12px;
+  margin-bottom:14px;
+   background: linear-gradient(90deg,#fff,#e0e0e0,#fff);
+  background-size:200% auto;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation: songGlow 4s linear infinite;
+}
+
+@keyframes songGlow{
+  to{ background-position:200% center; }
+}
+
+.player-controls{
+  display:flex;
+  justify-content:center;
+  gap:16px;
+}
+
+.player-controls button{
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background: rgba(255,255,255,.18);
+  border:1px solid rgba(255,255,255,.3);
+  cursor:pointer;
+  backdrop-filter: blur(12px);
+  transition:.3s;
+}
+
+.player-controls button:hover{
+  transform: scale(1.15);
+  box-shadow:0 0 25px rgba(184, 184, 184, 0.8);
+}
+
+.progress{
+  margin-top:14px;
+  width:100%;
+  accent-color:#b9b9b9;
+}
+.btn-player{
+  position:relative;
+}
+
+/* CONTENEDOR DEL PLAYER */
+.player-drop{
+  position:fixed;               /* 🔥 SALE del menú */
+  left:calc(140% - 210px);       /* alineado con la card */
+  top:42%;                      /* misma altura del menú */
+  margin-top:120px;             /* cae hacia abajo */
+  width:260px;
+
+  transform: translateY(-15px);
+  opacity:0;
+  pointer-events:none;
+
+  transition:.4s ease;
+  z-index:1000;
+}
+
+
+
+/* ACTIVO */
+.player-drop.active{
+  transform: translateY(0);
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* 🔧 FIX: el wrapper del reproductor debe comportarse como un botón */
+.menu-left .btn-player{
+  width:110px;            /* igual que .menu-left a */
+  display:block;
+}
+
+/* asegura que el <a> interno no altere el layout */
+.menu-left .btn-player > a{
+  width:100%;
+  display:block;
+}
+
+img{
+  pointer-events:none;
+  user-select:none;
+}
+
+
+.home-icon{
+  position:absolute;
+  width:38px;
+  height:38px;
+  border-radius:50%;
+
+  right:-6px;
+  bottom:-6px;
+
+  /* FONDO MÁS SÓLIDO */
+  background: linear-gradient(
+    145deg,
+    #d6d6d6,
+    #a0a0a0
+  );
+
+  border:2px solid #fff;
+
+  box-shadow:
+    0 4px 12px rgba(116, 116, 116, 0.45),
+    inset 0 0 6px rgba(255,255,255,.8);
+
+  z-index:10;
+  cursor:pointer;
+  transition:.25s ease;
+}
+
+/* icono */
+.home-icon::before{
+  position:absolute;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:17px;
+  color:#a8a8a8;
+}
+
+.home-icon:hover{
+  transform:scale(1.15);
+}
+
+/* contenedor del avatar */
+.avatar-wrap{
+  position:absolute;
+  top:40px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:160px;
+}
+
+/* avatar original intacto */
+.avatar{
+  position:relative;
+  width:100%;
+  height:100%;
+}
+
+/* icono fuera del círculo */
+.home-icon{
+  position:absolute;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+
+  top:150px;
+  left: 20px;
+
+  z-index:15;
+  cursor:pointer;
+  transition:.25s ease;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.home-icon img{
+  width:30px;      /* tamaño del icono */
+  height:30px;
+  pointer-events:none;
+}
+
+.home-icon:hover{
+  transform:scale(1.15);
+}
+
+/* icono fuera del círculo */
+.forum-icon{
+  position:absolute;
+  width:20px;
+  height:20px;
+  border-radius:50%;
+
+  top:150px;
+  left: 16px;
+
+  z-index:15;
+  cursor:pointer;
+  transition:.25s ease;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.forum-icon img{
+  width:30px;      /* tamaño del icono */
+  height:30px;
+  pointer-events:none;
+}
+
+.forum-icon:hover{
+  transform:scale(1.15);
+}
+/* INTRO SIMPLE */
+
+.intro{
+  position:fixed;
+  inset:0;
+  z-index:99999;
+  background: rgb(17, 17, 17);
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:40px;
+
+  backdrop-filter:blur(6px);
+}
+
+/* CUADRO FIRMA */
+
+.firma-box{
+  width:540px;
+  height:230px;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(20px);
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.25),
+    inset 0 0 15px rgba(255,255,255,0.25);
+}
+
+.firma-box img{
+  border-radius:18px;
+  max-width:90%;
+  max-height:90%;
+}
+
+/* BOTON INGRESAR */
+
+.enter-btn{
+  padding:12px 40px;
+
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  letter-spacing:2px;
+
+  color:#fff;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(18px);
+
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.4);
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.25),
+    inset 0 0 10px rgba(255,255,255,0.25);
+
+  transition:.25s;
+}
+
+.enter-btn:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 35px rgba(255,255,255,0.45),
+    inset 0 0 15px rgba(255,255,255,0.35);
+}
+
+/* ===============================
+   🔧 FIX CLICK IFRAMES
+   =============================== */
+html, body{
+  pointer-events: auto !important;
+}
+
+
+
+
+html, body, a, div, span, p, img, button, input, textarea, select, * {
+    cursor: none !important;
+}
+
+
+/* ===============================
+   👥 FRIENDS INTEGRADO
+================================ */
+
+.friends-card{
+  width:420px;
+  height:520px;
+  border-radius:30px;
+  background:rgba(77, 77, 77, 0.95);
+  backdrop-filter:blur(20px);
+  box-shadow:0 15px 25px rgba(36, 36, 36, 0.55);
+  position:relative;
+  overflow:hidden;
+  margin:auto;
+}
+
+.friends-card::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border-radius:22px;
+  border:1.5px solid rgba(230, 230, 230, 0.75);
+}
+
+.friends-title{
+  text-align:center;
+  margin-top:26px;
+  font-family:'Playfair Display',serif;
+  font-size:26px;
+  color:#e7e7e7;
+  letter-spacing:3px;
+}
+
+.friends-list{
+  margin:24px auto 0;
+  width:82%;
+  max-height:360px;
+  overflow-y:auto;
+  padding-right:6px;
+}
+
+.friend-item{
+  background:rgba(175, 175, 175, 0.55);
+  backdrop-filter:blur(12px);
+  border-radius:18px;
+  padding:10px 14px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+  box-shadow:0 4px 10px rgba(78, 78, 78, 0.25);
+}
+
+.friend-left{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.friends-card .avatar{
+  width:36px;
+  height:36px;
+  left: 10px;
+  top: 0px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#dfdfdf,#b3b3b3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:600;
+  font-size:12px;
+  color:#141414;
+}
+
+.friend-name{
+  font-size:14px;
+  color:#e6e6e6;
+}
+
+.friend-id{
+  font-size:11px;
+  color:#e7e7e7;
+}
+
+.friend-btn{
+  padding:6px 14px;
+  border-radius:20px;
+  border:1px solid rgba(255,255,255,.6);
+  background:linear-gradient(145deg,#b8b8b8,#757575);
+  font-size:11px;
+  color:#dbdbdb;
+  text-decoration:none;
+  transition:.25s ease;
+}
+
+.friend-btn:hover{
+  transform:scale(1.1);
+  box-shadow:0 0 20px rgba(131, 131, 131, 0.9);
+}
+
+/* ===============================
+   SCROLL MODERNO FRIENDS
+================================ */
+
+.friends-list{
+  margin:24px auto 0;
+  width:82%;
+  max-height:360px;
+  overflow-y:auto;
+  padding-right:6px;
+
+  /* Firefox */
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.35) transparent;
+}
+
+/* Chrome / Edge / Safari */
+
+.friends-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.friends-list::-webkit-scrollbar-track{
+  background:transparent;
+  border-radius:20px;
+}
+
+.friends-list::-webkit-scrollbar-thumb{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.55),
+    rgba(180,180,180,.35)
+  );
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  transition:all .3s ease;
+}
+
+/* Hover efecto premium */
+
+.friends-list::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.85),
+    rgba(200,200,200,.55)
+  );
+  box-shadow:0 0 10px rgba(255,255,255,.35);
+}
+
+/* ===============================
+   🖼 GALERIA INTEGRADA
+================================ */
+
+.gallery-box{
+  position:relative;
+  width:100%;
+  height:100%;
+
+  background:rgba(65, 65, 65, 0.55);
+
+  padding:22px;
+
+  border-radius:24px;            /* 🔴 REDONDEO REAL */
+  overflow:hidden;               /* 🔴 CLAVE PARA NO DEFORMAR */
+
+  backdrop-filter:blur(18px);
+  box-shadow:0 15px 35px rgba(54, 54, 54, 0.45);
+}
+
+
+.gallery-box::before{
+  content:"";
+  position:absolute;
+  inset:12px;
+  border-radius:20px;             /* proporcional al exterior */
+  border:1.1px solid rgba(255,255,255,.75);
+  pointer-events:none;
+}
+
+/* HEADER */
+.gallery-header{
+  position: relative;
+  text-align: center;
+  height: 110px;       /* 🔒 ALTURA FIJA */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.gallery-header span{
+  position:relative;
+  display:inline-block;
+  top:-12px;
+  padding:0 18px;
+  font-size:40px;
+  letter-spacing:6px;
+  font-weight:400;
+
+  background:linear-gradient(
+    90deg,
+    #cfcfcf,
+    #919191,
+    #d6d6d6
+  );
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  text-shadow:
+    0 0 6px rgba(245, 245, 245, 0.8),
+    0 0 14px rgba(221, 221, 221, 0.6);
+}
+
+.gallery-header span{
+  font-weight:200;
+  -webkit-text-stroke: 0.5px rgba(194, 194, 194, 0.6);
+}
+/* LÍNEA */
+.gallery-header::after{
+  content:"";
+  position:absolute;
+  left:0;
+  right:0;
+  bottom: 22px;        /* 🔒 POSICIÓN FIJA */
+  height:1px;
+  z-index:5;
+
+  background:linear-gradient(
+    90deg,
+    transparent,
+    rgba(197, 197, 197, 0.8),
+    rgb(228, 228, 228),
+    rgba(197, 197, 197, 0.8),
+    transparent
+  );
+
+  box-shadow:0 0 8px rgba(104, 104, 104, 0.8);
+}
+
+/* SLIDER */
+.slider{
+  margin-top: -40px;
+  position:relative;
+  width:100%;
+  height:420px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow:hidden;
+    transform: translateY(-10px);
+}
+
+/* SLIDE */
+.slide{
+  position:absolute;
+  top:50px;
+  width:220px;
+  height:360px;
+  border-radius:18px;
+  overflow:hidden;
+  transition:.6s ease;
+  filter:brightness(.45);
+  transform:scale(.75);
+  box-shadow:0 12px 30px rgba(0,0,0,.25);
+}
+
+
+
+.slide img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.slide.active:hover::after{
+  opacity:1;
+}
+
+/* ACTIVO */
+.slide.active{
+  transform:scale(1);
+  filter:brightness(1);
+  opacity:1;
+  box-shadow:
+    0 0 0 2px rgba(255,255,255,.9),
+    0 0 35px rgba(114, 114, 114, 0.9);
+  z-index:3;
+}
+
+
+/* IZQ / DER */
+.slide.left{
+opacity:.6;
+  transform:translateX(-260px) scale(.8);
+  z-index:1;
+}
+
+.slide.right{
+  opacity:.6;
+  transform:translateX(260px) scale(.8);
+  z-index:1;
+}
+
+
+/* FLECHAS */
+.nav{
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  width:46px;
+  height:46px;
+  border-radius:50%;
+  background:rgba(211, 211, 211, 0.692);
+  backdrop-filter:blur(10px);
+  color:#7c7c7c;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  font-size:22px;
+  box-shadow:0 8px 20px rgba(66, 66, 66, 0.35);
+  transition:.3s ease;
+  z-index:5;
+}
+
+.nav:hover{
+  background:#e4e4e4;
+  transform:translateY(-50%) scale(1.15);
+}
+
+.nav.prev{left:18px}
+.nav.next{right:18px}
+
+.name{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:8px; /* espacio entre nick y bandera */
+}
+
+.name .flag{
+  width:20px;
+  height:auto;
+  border-radius:3px;
+  box-shadow:0 0 6px rgba(255,255,255,.6);
+}
+
+/* ===============================
+   💗 CURSOR JEFA EXACTO
+================================ */
+
+#cursorJefaExacto{
+  position:fixed !important;
+  left:0;
+  top:0;
+
+  width:40px;   /* 🔥 más grande para ver flecha + corazones */
+  height:auto;
+
+  pointer-events:none;
+
+  z-index:99999999999;
+
+  object-fit:contain;
+  overflow:visible !important;
+}
+</style>
+</head>
+
+<body>
+
+<img id="cursorJefaExacto"
+src="https://xatimg.com/image/WmUTHP4IOFWv.png">
+
+<div class="intro" id="intro">
+
+  <!-- FIRMA -->
+  <div class="firma-box">
+      <img src="https://i.ibb.co/nNCJ254t/0c33l-6gdzd.gif" alt="firma">
+  </div>
+
+  <!-- BOTON -->
+  <button class="enter-btn" onclick="enterSite()">
+      INGRESAR
+  </button>
+
+</div>
+
+<!-- TRANSICIÓN PREMIUM -->
+<div id="page-transition"></div>
+
+<!-- ===============================
+     CONTENIDO PRINCIPAL
+================================ -->
+<div class="page-content">
+
+
+  <div class="wrapper">
+
+    <!-- BOTONES -->
+    <div class="menu-left">
+  <a href="#" onclick="abrirFriend(); return false;"> Friend </a>
+      <a href="#" onclick="abrirGaleria(); return false;"> Galeria </a>
+
+      <div class="btn-player">
+        <a href="#" onclick="togglePlayer(); return false;"> Musica </a>
+
+        <div class="player-drop" id="playerDrop">
+          <div class="player-glass">
+            <div class="music-title">Musica</div>
+            <div class="song-name animated-song" id="songName">Cargando...</div>
+
+            <div class="player-controls">
+              <button id="prevBtn">⏮</button>
+              <button id="playPauseBtn">▶</button>
+              <button id="nextBtn">⏭</button>
+            </div>
+
+            <input type="range" id="progress" class="progress" value="0">
+          </div>
+        </div>
+      </div>
+    </div>
+
+<!-- CARD -->
+<div class="card">
+
+  <!-- AVATAR -->
+  <div class="avatar-wrap">
+    <div class="avatar">
+      <img src="https://xatimg.com/image/8qlz8q5AyD7s.png">
+    </div>
+
+
+
+    <!-- ICONO FORUM -->
+    <a href="https://xat.com/trade" target="_blank" class="forum-icon" title="trade">
+      <img src="https://xatimg.com/image/TltnJ6ffKtRX.png" alt="forum">
+    </a>
+  </div>
+
+  <!-- TEXTO -->
+<div class="name">
+  Lex
+  <img class="flag" src="https://flagcdn.com/w20/sv.png" alt="Francia">
+</div>
+  <div class="subtitle">✧ Bienvenidos a mi xatspace ✧</div>
+
+  <div class="bio" id="typingText">
+    No dejes de intentarlo nunca!.
+  </div>
+
+
+
+  <!-- FOOTER -->
+  <div class="footer">✦ By Fabricio ✦</div>
+
+</div>
+
+<!-- MODAL GALERIA -->
+<div class="modal-overlay" id="galeriaModal">
+  <div class="modal-content">
+
+    <span class="modal-close" onclick="cerrarGaleria()">×</span>
+
+    <div class="gallery-box">
+
+      <div class="gallery-header">
+        <span>ɢᴀʟᴇʀɪᴀ</span>
+      </div>
+
+      <div class="slider" id="slider">
+
+        <div class="slide active">
+          <img src="https://xatimg.com/image/2Jouuawm2zSU.png">
+        </div>
+
+        <div class="slide right">
+          <img src="https://xatimg.com/image/iSH8rPX9J5M5.png">
+        </div>
+
+        <div class="slide right">
+          <img src="https://xatimg.com/image/H4uFhikgqWeh.png">
+        </div>
+
+        <div class="slide right">
+          <img src="https://xatimg.com/image/cecUBxkH1CZm.png">
+        </div>
+        <!-- AGREGA MÁS SLIDES AQUÍ -->
+        <!--
+        <div class="slide">
+          <img src="URL_IMAGEN">
+        </div>
+        -->
+
+      </div>
+
+      <div class="nav prev" onclick="prev()">❮</div>
+      <div class="nav next" onclick="next()">❯</div>
+
+    </div>
+
+  </div>
+</div>
+
+
+<!-- MODAL FRIEND -->
+<div class="modal-overlay" id="friendModal">
+  <div class="modal-content">
+
+    <span class="modal-close" onclick="cerrarFriend()">×</span>
+
+    <div class="friends-card">
+
+      <div class="friends-title"> Friends </div>
+
+      <div class="friends-list">
+
+  <!-- FRIEND 1 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">DY</div>
+      <div class="friend-info">
+        <div class="friend-name">iDaii</div>
+        <div class="friend-id">116447265</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/116447265" target="_blank">
+      XAT.ME
+    </a>
+  </div>
+
+  <!-- FRIEND 2 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">CB</div>
+      <div class="friend-info">
+        <div class="friend-name">CeboLLita </div>
+        <div class="friend-id">1557810815</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/1557810815" target="_blank">
+      XAT.ME
+    </a>
+  </div>
+
+  <!-- FRIEND 3 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">UN</div>
+      <div class="friend-info">
+        <div class="friend-name">Universo</div>
+        <div class="friend-id">202051162</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/202051162" target="_blank">
+      XAT.ME
+    </a>
+  </div>
+
+  <!-- FRIEND 3 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">ML</div>
+      <div class="friend-info">
+        <div class="friend-name">MyLoveLovee</div>
+        <div class="friend-id">707651438</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/707651438" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+
+    <!-- FRIEND 3 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">ANG</div>
+      <div class="friend-info">
+        <div class="friend-name">XANG3LiTAX </div>
+        <div class="friend-id">10346</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/10346" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+
+     <!-- FRIEND 3 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">FB</div>
+      <div class="friend-info">
+        <div class="friend-name">xfabriciio</div>
+        <div class="friend-id">1537898900</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/1537898900" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+      </div>     
+    </div>
+
+  </div>
+</div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const element = document.getElementById("typingText");
+  if (!element) return;
+
+  // Evita que se ejecute más de una vez
+  if (element.dataset.typed === "true") return;
+  element.dataset.typed = "true";
+
+  const text = element.textContent.trim();
+  element.textContent = "";
+
+  let index = 0;
+  const speed = 65;
+
+  function typeEffect() {
+    if (index < text.length) {
+      element.textContent += text.charAt(index);
+      index++;
+      setTimeout(typeEffect, speed);
+    }
+  }
+
+  typeEffect();
+});
+
+function abrirGaleria(){
+  document.getElementById("galeriaModal").classList.add("active");
+}
+
+function cerrarGaleria(){
+  document.getElementById("galeriaModal").classList.remove("active");
+}
+
+
+let songs = [
+  { name: "Bad Bunny - Monaco", url: "music/Bad Bunny – MONACO.mp3" },
+  { name: "Bad Bunny - Te mudaste el ultimo tour del mundo", url: "music/BAD BUNNY - TE MUDASTE _ EL ÚLTIMO TOUR DEL MUNDO.mp3" },
+  { name: "Bad Bunny, Mora - Una Vez", url: "music/Bad Bunny, Mora - Una Vez.mp3" }
+];
+
+let audio = new Audio();
+let currentIndex = 0;
+let isPlaying = false;
+
+const playPauseBtn = document.getElementById("playPauseBtn");
+const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
+const songName = document.getElementById("songName");
+const progress = document.getElementById("progress");
+
+function loadSong(autoplay = false){
+  audio.src = songs[currentIndex].url;
+  songName.textContent = songs[currentIndex].name;
+
+  if(autoplay){
+    audio.play().then(()=>{
+      isPlaying = true;
+      playPauseBtn.textContent = "⏸";
+    }).catch(()=>{});
+  }
+}
+
+playPauseBtn.addEventListener("click", () => {
+  if(audio.paused){
+    audio.play();
+    isPlaying = true;
+    playPauseBtn.textContent = "⏸";
+  }else{
+    audio.pause();
+    isPlaying = false;
+    playPauseBtn.textContent = "▶";
+  }
+});
+
+nextBtn.onclick = () => {
+  currentIndex = (currentIndex + 1) % songs.length;
+  loadSong(true);
+};
+
+prevBtn.onclick = () => {
+  currentIndex = (currentIndex - 1 + songs.length) % songs.length;
+  loadSong(true);
+};
+
+// ▶ cuando termina la canción → pasa a la siguiente automáticamente
+audio.addEventListener("ended", () => {
+  currentIndex = (currentIndex + 1) % songs.length;
+  loadSong(true);
+});
+
+
+progress.addEventListener("input", () => {
+  if(audio.duration){
+    audio.currentTime = (progress.value / 100) * audio.duration;
+  }
+});
+
+// Carga inicial SIN reproducir
+loadSong(false);
+
+
+function togglePlayer(){
+  document
+    .getElementById("playerDrop")
+    .classList.toggle("active");
+}
+
+/* Bloquear clic derecho */
+document.addEventListener('contextmenu', function(e){
+  e.preventDefault();
+});
+
+/* Bloquear selección de texto */
+document.addEventListener('selectstart', function(e){
+  e.preventDefault();
+});
+
+/* Bloquear arrastrar imágenes/texto */
+document.addEventListener('dragstart', function(e){
+  e.preventDefault();
+});
+
+function enterSite(){
+  const intro = document.getElementById("intro");
+  if(!intro) return;
+
+  intro.style.pointerEvents = "none";
+
+  // 🔥 animación de entrada
+  document.body.classList.add("entered");
+
+  // 🔥 autoplay seguro (ya hubo click)
+  audio.play().then(()=>{
+    isPlaying = true;
+    playPauseBtn.textContent = "⏸";
+  }).catch(()=>{});
+
+  intro.style.transition = "opacity 1s ease";
+  intro.style.opacity = "0";
+
+  setTimeout(() => {
+    intro.remove();
+  }, 1100);
+}
+
+
+function spawnSparkle(){
+  const sparkle = document.createElement("div");
+  sparkle.className = "heart-sparkle";
+  sparkle.style.left = posX + "px";
+  sparkle.style.top = posY + "px";
+  document.body.appendChild(sparkle);
+
+  setTimeout(() => sparkle.remove(), 600);
+}
+
+document.addEventListener('mousemove', spawnSparkle);
+window.addEventListener("message", spawnSparkle);
+
+
+function abrirFriend(){
+  document.getElementById("friendModal").classList.add("active");
+}
+
+function cerrarFriend(){
+  document.getElementById("friendModal").classList.remove("active");
+}
+
+function abrirMarried(){
+  document.getElementById("marriedModal").classList.add("active");
+}
+
+function cerrarMarried(){
+  document.getElementById("marriedModal").classList.remove("active");
+}
+
+const slides = document.querySelectorAll('#galeriaModal .slide');
+let current = 0;
+
+function update(){
+  slides.forEach((s,i)=>{
+    s.className = 'slide';
+    if(i === current) s.classList.add('active');
+    else if(i === (current - 1 + slides.length) % slides.length) s.classList.add('left');
+    else if(i === (current + 1) % slides.length) s.classList.add('right');
+  });
+}
+
+function next(){
+  current = (current + 1) % slides.length;
+  update();
+}
+
+function prev(){
+  current = (current - 1 + slides.length) % slides.length;
+  update();
+}
+
+/* ===============================
+   💗 CURSOR JEFA EXACTO (FIX REAL)
+================================ */
+
+const cursor = document.getElementById("cursorJefaExacto");
+
+/* posición inicial para que se vea desde el inicio */
+cursor.style.transform = "translate(50vw, 50vh)";
+
+const offsetX = 20;
+const offsetY = 10;
+
+document.addEventListener("mousemove", (e) => {
+  cursor.style.transform =
+    `translate(${e.clientX - offsetX}px, ${e.clientY - offsetY}px)`;
+});
+</script>
+
+</body>
+</html>
+
