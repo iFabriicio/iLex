@@ -14,14 +14,22 @@ body{
   margin:0;
   height:100vh;
   font-family:'Poppins',sans-serif;
-  background:radial-gradient(circle at top,#875151,#875151,#875151);
+
+  background:
+  linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+  url("https://i.imgur.com/HRDw2tY.gif");
+
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
   display:flex;
   align-items:center;
   justify-content:center;
   overflow:hidden;
 }
 
-/* CONTENEDOR PRINCIPAL (YA EXISTÍA) */
+/* CONTENEDOR PRINCIPAL */
 .wrapper{
   position:relative;
   display:flex;
@@ -46,19 +54,19 @@ body{
   padding:10px 0;
   text-align:center;
 
-  background:rgba(248, 187, 191, 0.712);
+  background:rgba(214, 214, 214, 0.712);
   backdrop-filter:blur(14px);
 
   border-radius:10px;
-  border:1px solid rgba(252, 198, 198, 0.35); /* 👈 BORDE */
+  border:1px solid rgba(184, 184, 184, 0.35); /* 👈 BORDE */
   
   font-size:13px;
-  color:#fcdcdf;
+  color:#2c2c2c;
   text-decoration:none;
 
   box-shadow:
-    inset 0 0 1px rgba(253, 206, 206, 0.6),  /* brillo glass */
-    0 4px 10px rgba(128, 40, 40, 0.25);
+    inset 0 0 1px rgba(214, 214, 214, 0.6),  /* brillo glass */
+    0 4px 10px rgba(124, 124, 124, 0.25);
 
   transition:transform .25s ease,
              box-shadow .25s ease,
@@ -75,9 +83,9 @@ body{
   inset:0;
   background:linear-gradient(
     135deg,
-    rgb(252, 180, 213),
-    rgb(250, 171, 184),
-    rgb(250, 150, 180)
+    rgb(218, 218, 218),
+    rgb(155, 155, 155),
+    rgb(226, 226, 226)
   );
   opacity:0;
   transition:opacity .15s ease;
@@ -87,7 +95,7 @@ body{
 
 .menu-left a:hover{
   transform:translateX(-10px);
-  box-shadow:0 2px 2px rgba(248, 114, 148, 0.795);
+  box-shadow:0 2px 2px rgba(226, 226, 226, 0.795);
 }
 
 .menu-left a:hover::after{
@@ -106,9 +114,9 @@ body{
   width:420px;
   height:560px;
   border-radius:30px;
-  background:rgba(192, 112, 112, 0.959);
+  background:rgba(61, 61, 61, 0.514);
   backdrop-filter:blur(20px);
-  box-shadow:0 15px 10px rgba(145, 44, 49, 0.637);
+  box-shadow:0 15px 10px rgba(114, 114, 114, 0.486);
   z-index:2;
   overflow:hidden; /* IMPORTANTE */
 }
@@ -157,10 +165,10 @@ body{
   /* degradado */
   background: linear-gradient(
     90deg,
-    #ffd6e1,
-    #ffffff,
-    #ffb3c6,
-    #ffd6e1
+    #e2e2e2,
+    #e0e0e0,
+    #929292,
+    #dddddd
   );
   background-size:200% auto;
 
@@ -169,10 +177,10 @@ body{
 
   /* brillo neon (lo mantenemos) */
   text-shadow:
-    0 0 6px rgba(255,220,220,.8),
-    0 0 12px rgba(255,170,190,.7),
-    0 0 22px rgba(255,140,160,.6),
-    0 0 40px rgba(255,120,140,.5);
+    0 0 6px rgba(236, 236, 236, 0.8),
+    0 0 12px rgba(197, 197, 197, 0.7),
+    0 0 22px rgba(218, 218, 218, 0.6),
+    0 0 40px rgba(197, 197, 197, 0.5);
 
   animation: gradientMove 5s linear infinite;
 }
@@ -196,7 +204,7 @@ body{
   left:50%;
   transform:translateX(-50%);
   font-size:13px;
-  color:#f7d4d4;
+  color:#dfdfdf;
 }
 
 
@@ -211,13 +219,13 @@ body{
   padding:14px 16px;                 /* espacio interno del texto */
   font-size:11px;
   line-height:1.6;
-  color:#fddce1;
+  color:#e4e4e4;
    text-align:center;
-  background:rgba(247, 168, 168, 0.596);  /* fondo suave */
+  background:rgba(163, 163, 163, 0.596);  /* fondo suave */
   backdrop-filter:blur(10px);
   border-radius:16px;
 
-  box-shadow:0 2px 4px rgba(68, 30, 30, 0.12);
+  box-shadow:0 2px 4px rgba(41, 41, 41, 0.12);
 }
 
 
@@ -242,7 +250,7 @@ body{
   left:50%;
   transform:translateX(-50%);
   font-size:8px;
-  color:#fdeef0aa;
+  color:#e2e2e2aa;
 }
 
 /* OVERLAY */
@@ -251,7 +259,7 @@ body{
   inset:0;
 
   /* MÁS TRANSPARENTE */
-  background: rgba(255, 180, 210, 0.08);
+  background: rgba(26, 26, 26, 0.08);
 
   /* BLUR MÁS SUAVE */
   backdrop-filter: blur(7px);
@@ -280,7 +288,7 @@ body{
   height:530px;
   border-radius:20px;
   overflow:visible;   /* ✅ CLAVE */
-   box-shadow:0 0 40px rgba(250, 130, 140, 0.466);
+   box-shadow:0 0 40px rgba(192, 192, 192, 0.466);
   animation:zoomIn .35s ease;
 }
 
@@ -294,8 +302,8 @@ body{
   pointer-events:none;
 
   box-shadow:
-    0 0 25px rgba(255, 170, 170, 0.9),
-    0 0 60px rgba(255, 120, 127, 0.5);
+    0 0 25px rgba(194, 194, 194, 0.9),
+    0 0 60px rgba(148, 148, 148, 0.5);
 }
 
 
@@ -317,9 +325,9 @@ body{
   width:34px;
   height:34px;
   border-radius:50%;
-  background:rgba(255,255,255,.75);
+  background:rgba(224, 224, 224, 0.75);
   backdrop-filter:blur(8px);
-  color:#d84450;
+  color:#2b2b2b;
   font-size:22px;
   font-weight:600;
   display:flex;
@@ -327,12 +335,12 @@ body{
   justify-content:center;
   cursor:pointer;
   z-index:1000;
-  box-shadow:0 6px 18px rgba(120,40,90,.45);
+  box-shadow:0 6px 18px rgba(90, 90, 90, 0.45);
   transition:.25s ease;
 }
 
 .modal-close:hover{
-  background:#ffd6e8;
+  background:#d6d6d6;
   transform:scale(1.15);
 }
 
@@ -375,21 +383,21 @@ body{
 .player-tab{
   width:40px;
   height:120px;
-  background: linear-gradient(180deg,#ff3b3b,#ca36367a);
+  background: linear-gradient(180deg,#dddddd,#9292927a);
   border-radius:15px 0 0 15px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-size:22px;
   cursor:pointer;
-  box-shadow:0 0 25px rgba(255,0,0,.6);
+  box-shadow:0 0 25px rgba(238, 238, 238, 0.6);
 }
 
 .player-glass{
   width:200px;
   height:40%;
   padding:4px;
-  background: rgba(223, 129, 129, 0.575);
+  background: rgba(211, 211, 211, 0.575);
   backdrop-filter: blur(18px);
 
   border-radius:20px;                     /* ✔ bordes iguales */
@@ -398,14 +406,14 @@ body{
 
   box-shadow:
     inset 0 0 20px rgba(255,255,255,.15),
-    0 0 40px rgba(194, 88, 88, 0.45);
+    0 0 40px rgba(182, 182, 182, 0.45);
 }
 
 
 .music-title{
   font-size:11px;
   letter-spacing:2px;
-  color:#ffd6d6;
+  color:#ececec;
   text-transform:uppercase;
   margin-bottom:6px;
   text-align:center;
@@ -414,7 +422,7 @@ body{
 .animated-song{
   font-size:12px;
   margin-bottom:14px;
-   background: linear-gradient(90deg,#fff,#ffb3b3,#fff);
+   background: linear-gradient(90deg,#fff,#e0e0e0,#fff);
   background-size:200% auto;
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
@@ -444,13 +452,13 @@ body{
 
 .player-controls button:hover{
   transform: scale(1.15);
-  box-shadow:0 0 25px rgba(228, 164, 164, 0.8);
+  box-shadow:0 0 25px rgba(184, 184, 184, 0.8);
 }
 
 .progress{
   margin-top:14px;
   width:100%;
-  accent-color:#be8686;
+  accent-color:#b9b9b9;
 }
 .btn-player{
   position:relative;
@@ -511,14 +519,14 @@ img{
   /* FONDO MÁS SÓLIDO */
   background: linear-gradient(
     145deg,
-    #ffd6e1,
-    #f4a8b8
+    #d6d6d6,
+    #a0a0a0
   );
 
   border:2px solid #fff;
 
   box-shadow:
-    0 4px 12px rgba(150,50,60,.45),
+    0 4px 12px rgba(116, 116, 116, 0.45),
     inset 0 0 6px rgba(255,255,255,.8);
 
   z-index:10;
@@ -534,7 +542,7 @@ img{
   align-items:center;
   justify-content:center;
   font-size:17px;
-  color:#9c2f42;
+  color:#a8a8a8;
 }
 
 .home-icon:hover{
@@ -594,8 +602,8 @@ img{
   height:20px;
   border-radius:50%;
 
-  top:120px;
-  left: -6px;
+  top:150px;
+  left: 16px;
 
   z-index:15;
   cursor:pointer;
@@ -615,299 +623,80 @@ img{
 .forum-icon:hover{
   transform:scale(1.15);
 }
-/* ===============================
-   INTRO PRINCIPAL
-================================ */
+/* INTRO SIMPLE */
 
 .intro{
   position:fixed;
   inset:0;
   z-index:99999;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  background: radial-gradient(
-    circle at top,
-    #875151,
-    #974646,
-    #b15656
-  );
-  overflow:hidden;
-}
-
-
-
-/* ===============================
-   CORAZÓN ENTER – ESTRUCTURA
-================================ */
-
-.heart-wrapper{
-  transform: translateY(-10px);
-}
-
-.heart-enter{
-  position:relative;
-  width:130px;
-  height:130px;
-  cursor:pointer;
-
-  transform:rotate(-45deg);
-  animation:heartFloat 3s ease-in-out infinite;
-
-  filter:
-    drop-shadow(0 0 25px rgba(247, 142, 142, 0.8))
-    drop-shadow(0 0 60px rgba(221, 130, 130, 0.6));
-
-  transition:.35s ease;
-}
-
-/* ===============================
-   FORMA DEL CORAZÓN (ATRÁS)
-================================ */
-
-.heart-enter::before,
-.heart-enter::after{
-  content:"";
-  position:absolute;
-  width:130px;
-  height:130px;
-  border-radius:50%;
-  z-index:1; /* 👈 base */
-
-  background:linear-gradient(
-    145deg,
-    #ffd6d6,
-    #f4a8a8,
-    #d17070
-  );
-}
-
-.heart-enter::before{
-  top:-65px;
-  left:0;
-}
-
-.heart-enter::after{
-  left:65px;
-  top:0;
-}
-
-/* ===============================
-   GLASS CENTRAL (DETRÁS DEL TEXTO)
-================================ */
-
-.heart-glass{
-  position:absolute;
-  inset:0;
-  border-radius:18px;
-  z-index:2; /* 👈 corazón */
-
-  background:linear-gradient(
-    145deg,
-    rgba(255,255,255,.35),
-    rgba(255,180,190,.85)
-  );
-
-  backdrop-filter:blur(14px);
-
-  box-shadow:
-    inset 0 0 28px rgba(255,255,255,.45),
-    0 0 45px rgba(255, 100, 100, 0.75);
-}
-
-/* BORDE INTERNO */
-.heart-glass::after{
-  content:"";
-  position:absolute;
-  inset:18px;
-  border-radius:16px;
-  border:1px solid rgba(255,255,255,.85);
-}
-
-/* REFLEJO GLASS */
-.heart-glass::before{
-  content:"";
-  position:absolute;
-  inset:22px;
-  border-radius:14px;
-  background:linear-gradient(
-    120deg,
-    rgba(255,255,255,.65),
-    transparent 60%
-  );
-  opacity:.35;
-}
-
-/* ===============================
-   TEXTO INGRESAR (ADELANTE)
-================================ */
-
-.heart-text{
-  position:absolute;
-  inset:0;
-  z-index:10; /* 👑 SIEMPRE ARRIBA */
-
+  background: rgb(17, 17, 17);
   display:flex;
   flex-direction:column;
   align-items:center;
   justify-content:center;
+  gap:40px;
 
-  transform:rotate(45deg);
-
-  font-family:'Playfair Display',serif;
-  font-size:17px;
-  letter-spacing:4px;
-  line-height:1;
-
-  color:#fd849a;
-  text-shadow:
-    0 2px 3px rgba(255,255,255,.95),
-    0 0 12px rgba(255,150,160,.9);
-
-  pointer-events:none;
+  backdrop-filter:blur(6px);
 }
 
-.heart-text small{
-  font-size:13px;
-  letter-spacing:6px;
-  margin-top:4px;
-}
+/* CUADRO FIRMA */
 
-/* ===============================
-   MINI CORAZONES
-================================ */
+.firma-box{
+  width:540px;
+  height:230px;
 
-.mini-heart{
-  position:absolute;
-  width:14px;
-  height:14px;
-  z-index:3; /* debajo del texto */
-
-  background:linear-gradient(145deg,#ffd6dc,#f4a8b8);
-  transform:rotate(-45deg);
-  opacity:.75;
-  animation:floatMini 3s ease-in-out infinite;
-}
-
-.mini-heart::before,
-.mini-heart::after{
-  content:"";
-  position:absolute;
-  width:14px;
-  height:14px;
-  background:inherit;
-  border-radius:50%;
-}
-
-.mini-heart::before{ top:-7px; left:0; }
-.mini-heart::after{ left:7px; top:0; }
-
-/* POSICIONES */
-.mh1{ left:-26px; top:22px; animation-delay:.2s; }
-.mh2{ right:-26px; top:38px; animation-delay:.4s; }
-.mh3{ left:18px; bottom:-28px; animation-delay:.6s; }
-.mh4{ right:20px; bottom:-32px; animation-delay:.8s; }
-
-/* ===============================
-   EFECTOS
-================================ */
-
-.heart-enter:hover{
-  transform:rotate(-45deg) scale(1.12);
-}
-
-@keyframes heartFloat{
-  0%,100%{ transform:rotate(-45deg) translateY(0); }
-  50%{ transform:rotate(-45deg) translateY(-10px); }
-}
-
-@keyframes floatMini{
-  0%,100%{ transform:rotate(-45deg) translateY(0); opacity:.6; }
-  50%{ transform:rotate(-45deg) translateY(-8px); opacity:1; }
-}
-
-/* ===============================
-   TRANSICIÓN DE PÁGINA PREMIUM
-================================ */
-
-#page-transition{
-  position:fixed;
-  inset:0;
-  background:radial-gradient(circle at center,
-    rgba(255,200,210,.85),
-    rgba(255,120,140,.95)
-  );
-  opacity:0;
-  pointer-events:none;
-  z-index:9999;
-  transform:scale(1.2);
-  filter:blur(20px);
-  transition:
-    opacity .9s ease,
-    transform .9s ease,
-    filter .9s ease;
-}
-
-body.is-transitioning #page-transition{
-  opacity:1;
-  transform:scale(1);
-  filter:blur(0);
-}
-
-
-/* ===============================
-   CONTENIDO RECONSTRUYÉNDOSE
-================================ */
-
-.page-content{
-  min-height:100vh;
-  width:100%;
   display:flex;
+  align-items:center;
   justify-content:center;
 
-  opacity:0;
-  transform:translateY(20px);
-  transition:
-    opacity 1.4s ease,
-    transform 1.4s ease;
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(20px);
+
+  border-radius:18px;
+  border:1px solid rgba(255,255,255,0.35);
+
+  box-shadow:
+    0 0 30px rgba(255,255,255,0.25),
+    inset 0 0 15px rgba(255,255,255,0.25);
 }
 
-body.entered .page-content{
-  opacity:1;
-  transform:translateY(0);
+.firma-box img{
+  border-radius:18px;
+  max-width:90%;
+  max-height:90%;
 }
 
+/* BOTON INGRESAR */
 
+.enter-btn{
+  padding:12px 40px;
 
-/* ===============================
-   ESTADO FINAL
-================================ */
+  font-family:'Poppins',sans-serif;
+  font-size:14px;
+  letter-spacing:2px;
 
-body.entered{
-  overflow:auto;
+  color:#fff;
+
+  background:rgba(255,255,255,0.15);
+  backdrop-filter:blur(18px);
+
+  border-radius:10px;
+  border:1px solid rgba(255,255,255,0.4);
+
+  cursor:pointer;
+
+  box-shadow:
+    0 0 18px rgba(255,255,255,0.25),
+    inset 0 0 10px rgba(255,255,255,0.25);
+
+  transition:.25s;
 }
 
-/* ✨ Estela elegante */
-.heart-sparkle{
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background: radial-gradient(circle, #ffb3b3, transparent);
-  border-radius: 50%;
- pointer-events:none;
-  z-index: 99998;
-  animation: sparkleFade .6s ease-out forwards;
-}
-
-@keyframes sparkleFade{
-  from{
-    opacity:1;
-    transform: scale(1);
-  }
-  to{
-    opacity:0;
-    transform: scale(2.5);
-  }
+.enter-btn:hover{
+  transform:scale(1.08);
+  box-shadow:
+    0 0 35px rgba(255,255,255,0.45),
+    inset 0 0 15px rgba(255,255,255,0.35);
 }
 
 /* ===============================
@@ -926,131 +715,6 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
 
 
 /* ===============================
-   💍 MARRIED INTEGRADO
-================================ */
-
-.married-card{
-  width:380px;
-  height:520px;
-  background:rgba(192,112,112,.95);
-  backdrop-filter:blur(22px);
-  border-radius:26px;
-  position:relative;
-  box-shadow:0 18px 35px rgba(120,40,40,.55);
-  overflow:hidden;
-  margin:auto;
-}
-
-.married-card::before{
-  content:"";
-  position:absolute;
-  inset:14px;
-  border-radius:20px;
-  border:1.5px solid rgba(255,255,255,.75);
-}
-
-.married-card .avatar-wrap{
-  position:absolute;
-  top:30px;
-  left:50%;
-  transform:translateX(-50%);
-  width:160px;
-  height:160px;
-}
-
-.married-card .avatar{
-  width:100%;
-  height:100%;
-  border-radius:50%;
-  overflow:hidden;
-  border:4px solid rgba(255,255,255,.85);
-  box-shadow:0 0 30px rgba(255,140,160,.9);
-}
-
-.married-card .avatar img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-}
-
-.married-heart{
-  position:absolute;
-  right:-5px;
-  bottom:8px;
-  width:40px;
-  height:40px;
-  border-radius:50%;
-  background:linear-gradient(145deg,#ffd6e1,#f4a8a8);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  box-shadow:0 0 18px rgba(255, 120, 120, 0.9);
-}
-
-.married-heart span{
-  font-size:18px;
-  color:#9c2f42;
-}
-
-.married-card .name{
-  position:absolute;
-  top:215px;
-  left:50%;
-  transform:translateX(-50%);
-  font-family:'Playfair Display',serif;
-  font-size:26px;
-  color:#f7d4d4;
-}
-
-.married-card .id{
-  position:absolute;
-  top:252px;
-  left:50%;
-  transform:translateX(-50%);
-  font-size:12px;
-  color:#ffdede;
-}
-
-.married-card .message{
-  position:absolute;
-  top:290px;
-  left:50%;
-  transform:translateX(-50%);
-  width:82%;
-  padding:16px;
-  text-align:center;
-  font-size:15px;
-  line-height:1.6;
-  color:#fdeef0;
-  background:rgba(247,168,168,.45);
-  backdrop-filter:blur(12px);
-  border-radius:18px;
-}
-
-.married-card .xatme{
-  position:absolute;
-  bottom:60px;
-  left:50%;
-  transform:translateX(-50%);
-}
-
-.married-card .xatme a{
-  padding:8px 28px;
-  border-radius:20px;
-  background:linear-gradient(145deg,#ffd6d6,#f4a8bf);
-  border:1px solid rgba(255,255,255,.75);
-  font-size:12px;
-  color:#9c2f53;
-  text-decoration:none;
-  box-shadow:0 0 18px rgba(255, 120, 154, 0.8);
-  transition:.25s ease;
-}
-
-.married-card .xatme a:hover{
-  transform:scale(1.15);
-}
-
-/* ===============================
    👥 FRIENDS INTEGRADO
 ================================ */
 
@@ -1058,9 +722,9 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   width:420px;
   height:520px;
   border-radius:30px;
-  background:rgba(192,112,112,.95);
+  background:rgba(77, 77, 77, 0.95);
   backdrop-filter:blur(20px);
-  box-shadow:0 15px 25px rgba(145,44,49,.55);
+  box-shadow:0 15px 25px rgba(36, 36, 36, 0.55);
   position:relative;
   overflow:hidden;
   margin:auto;
@@ -1071,7 +735,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   position:absolute;
   inset:14px;
   border-radius:22px;
-  border:1.5px solid rgba(255,255,255,.75);
+  border:1.5px solid rgba(230, 230, 230, 0.75);
 }
 
 .friends-title{
@@ -1079,7 +743,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   margin-top:26px;
   font-family:'Playfair Display',serif;
   font-size:26px;
-  color:#f7d4d4;
+  color:#e7e7e7;
   letter-spacing:3px;
 }
 
@@ -1092,7 +756,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
 }
 
 .friend-item{
-  background:rgba(243, 107, 152, 0.55);
+  background:rgba(175, 175, 175, 0.55);
   backdrop-filter:blur(12px);
   border-radius:18px;
   padding:10px 14px;
@@ -1100,7 +764,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   align-items:center;
   justify-content:space-between;
   margin-bottom:12px;
-  box-shadow:0 4px 10px rgba(120,40,60,.25);
+  box-shadow:0 4px 10px rgba(78, 78, 78, 0.25);
 }
 
 .friend-left{
@@ -1115,39 +779,88 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   left: 10px;
   top: 0px;
   border-radius:50%;
-  background:linear-gradient(145deg,#ffd6e1,#f4a8b8);
+  background:linear-gradient(145deg,#dfdfdf,#b3b3b3);
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:600;
   font-size:12px;
-  color:#9c2f42;
+  color:#141414;
 }
 
 .friend-name{
   font-size:14px;
-  color:#fdeef0;
+  color:#e6e6e6;
 }
 
 .friend-id{
   font-size:11px;
-  color:#fbd0d6;
+  color:#e7e7e7;
 }
 
 .friend-btn{
   padding:6px 14px;
   border-radius:20px;
   border:1px solid rgba(255,255,255,.6);
-  background:linear-gradient(145deg,#ffd6e1,#f4a8b8);
+  background:linear-gradient(145deg,#b8b8b8,#757575);
   font-size:11px;
-  color:#9c2f50;
+  color:#dbdbdb;
   text-decoration:none;
   transition:.25s ease;
 }
 
 .friend-btn:hover{
   transform:scale(1.1);
-  box-shadow:0 0 20px rgba(255,170,180,.9);
+  box-shadow:0 0 20px rgba(131, 131, 131, 0.9);
+}
+
+/* ===============================
+   SCROLL MODERNO FRIENDS
+================================ */
+
+.friends-list{
+  margin:24px auto 0;
+  width:82%;
+  max-height:360px;
+  overflow-y:auto;
+  padding-right:6px;
+
+  /* Firefox */
+  scrollbar-width:thin;
+  scrollbar-color:rgba(255,255,255,.35) transparent;
+}
+
+/* Chrome / Edge / Safari */
+
+.friends-list::-webkit-scrollbar{
+  width:6px;
+}
+
+.friends-list::-webkit-scrollbar-track{
+  background:transparent;
+  border-radius:20px;
+}
+
+.friends-list::-webkit-scrollbar-thumb{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.55),
+    rgba(180,180,180,.35)
+  );
+  border-radius:20px;
+  backdrop-filter:blur(10px);
+  transition:all .3s ease;
+}
+
+/* Hover efecto premium */
+
+.friends-list::-webkit-scrollbar-thumb:hover{
+  background:linear-gradient(
+    180deg,
+    rgba(255,255,255,.85),
+    rgba(200,200,200,.55)
+  );
+  box-shadow:0 0 10px rgba(255,255,255,.35);
 }
 
 /* ===============================
@@ -1159,7 +872,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   width:100%;
   height:100%;
 
-  background:rgba(245, 146, 163, 0.55);
+  background:rgba(65, 65, 65, 0.55);
 
   padding:22px;
 
@@ -1167,7 +880,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   overflow:hidden;               /* 🔴 CLAVE PARA NO DEFORMAR */
 
   backdrop-filter:blur(18px);
-  box-shadow:0 15px 35px rgba(120,20,20,.45);
+  box-shadow:0 15px 35px rgba(54, 54, 54, 0.45);
 }
 
 
@@ -1203,21 +916,21 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
 
   background:linear-gradient(
     90deg,
-    #ffd6e8,
-    #f8d0e1,
-    #ffd6e8
+    #cfcfcf,
+    #919191,
+    #d6d6d6
   );
   -webkit-background-clip:text;
   -webkit-text-fill-color:transparent;
 
   text-shadow:
-    0 0 6px rgba(252, 236, 236, 0.8),
-    0 0 14px rgba(255, 232, 232, 0.6);
+    0 0 6px rgba(245, 245, 245, 0.8),
+    0 0 14px rgba(221, 221, 221, 0.6);
 }
 
 .gallery-header span{
   font-weight:200;
-  -webkit-text-stroke: 0.5px rgba(255, 200, 200, 0.6);
+  -webkit-text-stroke: 0.5px rgba(194, 194, 194, 0.6);
 }
 /* LÍNEA */
 .gallery-header::after{
@@ -1232,13 +945,13 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   background:linear-gradient(
     90deg,
     transparent,
-    rgba(250,216,216,.8),
-    rgba(255,220,235,1),
-    rgba(253,213,213,.8),
+    rgba(197, 197, 197, 0.8),
+    rgb(228, 228, 228),
+    rgba(197, 197, 197, 0.8),
     transparent
   );
 
-  box-shadow:0 0 8px rgba(255, 180, 203, 0.8);
+  box-shadow:0 0 8px rgba(104, 104, 104, 0.8);
 }
 
 /* SLIDER */
@@ -1287,7 +1000,7 @@ html, body, a, div, span, p, img, button, input, textarea, select, * {
   opacity:1;
   box-shadow:
     0 0 0 2px rgba(255,255,255,.9),
-    0 0 35px rgba(247, 168, 168, 0.9);
+    0 0 35px rgba(114, 114, 114, 0.9);
   z-index:3;
 }
 
@@ -1314,21 +1027,21 @@ opacity:.6;
   width:46px;
   height:46px;
   border-radius:50%;
-  background:rgba(253, 225, 228, 0.692);
+  background:rgba(211, 211, 211, 0.692);
   backdrop-filter:blur(10px);
-  color:#e95f66;
+  color:#7c7c7c;
   display:flex;
   align-items:center;
   justify-content:center;
   cursor:pointer;
   font-size:22px;
-  box-shadow:0 8px 20px rgba(120,40,90,.35);
+  box-shadow:0 8px 20px rgba(66, 66, 66, 0.35);
   transition:.3s ease;
   z-index:5;
 }
 
 .nav:hover{
-  background:#ffd6e8;
+  background:#e4e4e4;
   transform:translateY(-50%) scale(1.15);
 }
 
@@ -1358,7 +1071,7 @@ opacity:.6;
   left:0;
   top:0;
 
-  width:90px;   /* 🔥 más grande para ver flecha + corazones */
+  width:40px;   /* 🔥 más grande para ver flecha + corazones */
   height:auto;
 
   pointer-events:none;
@@ -1368,33 +1081,196 @@ opacity:.6;
   object-fit:contain;
   overflow:visible !important;
 }
+
+/* OVERLAY */
+.modal-overlay{
+  position:fixed;
+  inset:0;
+  background: rgba(43, 43, 43, 0.08);
+  backdrop-filter: blur(7px);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  opacity:0;
+  pointer-events:none;
+  transition:.35s ease;
+  z-index:999;
+}
+
+.modal-overlay.active{
+  opacity:1;
+  pointer-events:auto;
+}
+
+/* CONTENIDO */
+.modal-content{
+  position:relative;
+  width:90%;
+  max-width:650px;
+  height:530px;
+  border-radius:20px;
+  animation:zoomIn .35s ease;
+}
+
+.modal-content::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:25px;
+  border:3px solid rgba(255,255,255,0.9);
+}
+
+/* BOTÓN CERRAR */
+.modal-close{
+  position:absolute;
+  top:7px;
+  right:10px;
+  width:34px;
+  height:34px;
+  border-radius:50%;
+  background:rgba(255,255,255,.75);
+  color:#d84450;
+  font-size:22px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+}
+
+/* ===============================
+   💍 MARRIED CARD
+================================ */
+
+.married-card{
+  width:380px;
+  height:520px;
+  background:rgba(192,112,112,.95);
+  backdrop-filter:blur(22px);
+  border-radius:26px;
+  position:relative;
+  box-shadow:0 18px 35px rgba(120,40,40,.55);
+  margin:auto;
+}
+
+.married-card::before{
+  content:"";
+  position:absolute;
+  inset:14px;
+  border-radius:20px;
+  border:1.5px solid rgba(255,255,255,.75);
+}
+
+.avatar-wrap{
+  position:absolute;
+  top:30px;
+  left:50%;
+  transform:translateX(-50%);
+  width:160px;
+  height:160px;
+}
+
+.avatar{
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  overflow:hidden;
+  border:4px solid rgba(255,255,255,.85);
+}
+
+.avatar img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+}
+
+.married-heart{
+  position:absolute;
+  right:-5px;
+  bottom:8px;
+  width:40px;
+  height:40px;
+  border-radius:50%;
+  background:linear-gradient(145deg,#ffd6e1,#f4a8a8);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.married-card .name{
+  position:absolute;
+  top:215px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:26px;
+  color:#f7d4d4;
+}
+
+.married-card .id{
+  position:absolute;
+  top:252px;
+  left:50%;
+  transform:translateX(-50%);
+  font-size:12px;
+  color:#ffdede;
+}
+
+.married-card .message{
+  position:absolute;
+  top:290px;
+  left:50%;
+  transform:translateX(-50%);
+  width:82%;
+  padding:16px;
+  text-align:center;
+  font-size:15px;
+  color:#fdeef0;
+  background:rgba(247,168,168,.45);
+  border-radius:18px;
+}
+
+.married-card .xatme{
+  position:absolute;
+  bottom:60px;
+  left:50%;
+  transform:translateX(-50%);
+}
+
+.married-card .xatme a{
+  padding:8px 28px;
+  border-radius:20px;
+  background:linear-gradient(145deg,#ffd6d6,#f4a8bf);
+  border:1px solid rgba(255,255,255,.75);
+  font-size:12px;
+  color:#9c2f53;
+  text-decoration:none;
+}
+
+/* ANIMACIÓN */
+@keyframes zoomIn{
+  from{transform:scale(.85); opacity:0}
+  to{transform:scale(1); opacity:1}
+}
+
 </style>
 </head>
 
 <body>
 
 <img id="cursorJefaExacto"
-src="https://xatimg.com/image/JG5xethZ11GX.png">
+src="https://xatimg.com/image/WmUTHP4IOFWv.png">
 
-<!-- INTRO -->
 <div class="intro" id="intro">
-  <div class="heart-wrapper">
-    <div class="heart-enter" onclick="enterSite()">
 
-      <!-- corazón -->
-      <div class="heart-glass"></div>
-
-      <!-- TEXTO ARRIBA -->
-      <span class="heart-text">Entrar</span>
-
-      <!-- mini corazones -->
-      <i class="mini-heart mh1"></i>
-      <i class="mini-heart mh2"></i>
-      <i class="mini-heart mh3"></i>
-      <i class="mini-heart mh4"></i>
-
-    </div>
+  <!-- FIRMA -->
+  <div class="firma-box">
+      <img src="https://i.ibb.co/nNCJ254t/0c33l-6gdzd.gif" alt="firma">
   </div>
+
+  <!-- BOTON -->
+  <button class="enter-btn" onclick="enterSite()">
+      INGRESAR
+  </button>
+
 </div>
 
 <!-- TRANSICIÓN PREMIUM -->
@@ -1405,18 +1281,17 @@ src="https://xatimg.com/image/JG5xethZ11GX.png">
 ================================ -->
 <div class="page-content">
 
-  <canvas id="heartsCanvas"></canvas>
 
   <div class="wrapper">
 
     <!-- BOTONES -->
     <div class="menu-left">
- <a href="#" onclick="abrirMarried(); return false;">♡ Married ♡</a>
-  <a href="#" onclick="abrirFriend(); return false;">♡ Friend ♡</a>
-      <a href="#" onclick="abrirGaleria(); return false;">♡ Galeria ♡</a>
+  <a href="#" onclick="abrirMarried(); return false;"> Married </a>
+  <a href="#" onclick="abrirFriend(); return false;"> Friend </a>
+      <a href="#" onclick="abrirGaleria(); return false;"> Galeria </a>
 
       <div class="btn-player">
-        <a href="#" onclick="togglePlayer(); return false;">♡ Musica ♡</a>
+        <a href="#" onclick="togglePlayer(); return false;"> Musica </a>
 
         <div class="player-drop" id="playerDrop">
           <div class="player-glass">
@@ -1441,41 +1316,63 @@ src="https://xatimg.com/image/JG5xethZ11GX.png">
   <!-- AVATAR -->
   <div class="avatar-wrap">
     <div class="avatar">
-      <img src="https://xatimg.com/image/GWbINLNdbfKi.jpg">
+      <img src="https://xatimg.com/image/8qlz8q5AyD7s.png">
     </div>
 
-    <!-- ICONO HOME -->
-    <a href="https://xat.com/eterno" target="_blank" class="home-icon" title="eterno">
-      <img src="https://xatimg.com/image/TltnJ6ffKtRX.png" alt="Home">
-    </a>
+
 
     <!-- ICONO FORUM -->
     <a href="https://xat.com/trade" target="_blank" class="forum-icon" title="trade">
-      <img src="https://xatimg.com/image/hPaxHzl4lHe9.png" alt="forum">
+      <img src="https://xatimg.com/image/TltnJ6ffKtRX.png" alt="forum">
     </a>
   </div>
 
   <!-- TEXTO -->
 <div class="name">
-  ♥ 𝕯ᵉᶤ͟ᵃ͟ʰ ♥
-  <img class="flag" src="https://flagcdn.com/w20/fr.png" alt="Francia">
+  Lex
+  <img class="flag" src="https://flagcdn.com/w20/sv.png" alt="Francia">
 </div>
   <div class="subtitle">✧ Bienvenidos a mi xatspace ✧</div>
 
   <div class="bio" id="typingText">
-    Si tuviera una sola flor por cada vez que pienso en ti,
-    podria caminar para siempre en mi jardín.
+    No dejes de intentarlo nunca!.
   </div>
 
-  
-  <!-- FIRMA -->
-  <div class="firma">
-    <img src="https://xatimg.com/image/yVc4WXi1ntcB.gif">
-  </div>
+
 
   <!-- FOOTER -->
   <div class="footer">✦ By Fabricio ✦</div>
 
+</div>
+
+<div class="modal-overlay" id="marriedModal">
+  <div class="modal-content">
+
+    <span class="modal-close" onclick="cerrarMarried()">×</span>
+
+    <div class="married-card">
+
+      <div class="avatar-wrap">
+        <div class="avatar">
+          <img src="https://xatimg.com/image/y6sE3xeS7jZH.jpg" alt="Pareja">
+        </div>
+        <div class="married-heart"><span>❤</span></div>
+      </div>
+
+      <div class="name">iBLessed</div>
+      <div class="id">1559242271</div>
+
+      <div class="message">
+        Contigo todo fluye.
+      </div>
+
+      <div class="xatme">
+        <a href="https://xat.me/1559242271" target="_blank">XAT.ME</a>
+      </div>
+
+    </div>
+
+  </div>
 </div>
 
 <!-- MODAL GALERIA -->
@@ -1487,19 +1384,26 @@ src="https://xatimg.com/image/JG5xethZ11GX.png">
     <div class="gallery-box">
 
       <div class="gallery-header">
-        <span>⭐︎ɢᴀʟᴇʀɪᴀ⭐︎</span>
+        <span>ɢᴀʟᴇʀɪᴀ</span>
       </div>
 
       <div class="slider" id="slider">
 
         <div class="slide active">
-          <img src="https://xatimg.com/image/e6IFZ76DMH8M.jpg">
+          <img src="https://xatimg.com/image/2Jouuawm2zSU.png">
         </div>
 
         <div class="slide right">
-          <img src="https://xatimg.com/image/Kg8dj0YKZM9Y.jpg">
+          <img src="https://xatimg.com/image/iSH8rPX9J5M5.png">
         </div>
 
+        <div class="slide right">
+          <img src="https://xatimg.com/image/H4uFhikgqWeh.png">
+        </div>
+
+        <div class="slide right">
+          <img src="https://xatimg.com/image/cecUBxkH1CZm.png">
+        </div>
         <!-- AGREGA MÁS SLIDES AQUÍ -->
         <!--
         <div class="slide">
@@ -1526,36 +1430,36 @@ src="https://xatimg.com/image/JG5xethZ11GX.png">
 
     <div class="friends-card">
 
-      <div class="friends-title">♡ Friends ♡</div>
+      <div class="friends-title"> Friends </div>
 
       <div class="friends-list">
 
   <!-- FRIEND 1 -->
   <div class="friend-item">
     <div class="friend-left">
-      <div class="avatar">JF</div>
+      <div class="avatar">DY</div>
       <div class="friend-info">
-        <div class="friend-name">Jefa</div>
-        <div class="friend-id">1231322223</div>
+        <div class="friend-name">iDaii</div>
+        <div class="friend-id">116447265</div>
       </div>
     </div>
 
-    <a class="friend-btn" href="https://xat.me/1231322223" target="_blank">
+    <a class="friend-btn" href="https://xat.me/116447265" target="_blank">
       XAT.ME
     </a>
   </div>
 
-  <!-- FRIEND 2 -->
+    <!-- FRIEND 2 -->
   <div class="friend-item">
     <div class="friend-left">
-      <div class="avatar">SFR</div>
+      <div class="avatar">BR</div>
       <div class="friend-info">
-        <div class="friend-name">Stiffer</div>
-        <div class="friend-id">344107857</div>
+        <div class="friend-name">Bori</div>
+        <div class="friend-id">1001002</div>
       </div>
     </div>
 
-    <a class="friend-btn" href="https://xat.me/344107857" target="_blank">
+    <a class="friend-btn" href="https://xat.me/1001002" target="_blank">
       XAT.ME
     </a>
   </div>
@@ -1563,50 +1467,83 @@ src="https://xatimg.com/image/JG5xethZ11GX.png">
   <!-- FRIEND 3 -->
   <div class="friend-item">
     <div class="friend-left">
-      <div class="avatar">LND</div>
+      <div class="avatar">CB</div>
       <div class="friend-info">
-        <div class="friend-name">Leonidas</div>
-        <div class="friend-id">1538488247</div>
+        <div class="friend-name">CeboLLita </div>
+        <div class="friend-id">1557810815</div>
       </div>
     </div>
 
-    <a class="friend-btn" href="https://xat.me/1538488247" target="_blank">
+    <a class="friend-btn" href="https://xat.me/1557810815" target="_blank">
       XAT.ME
     </a>
   </div>
 
+  <!-- FRIEND 4 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">UN</div>
+      <div class="friend-info">
+        <div class="friend-name">Universo</div>
+        <div class="friend-id">202051162</div>
       </div>
+    </div>
 
+    <a class="friend-btn" href="https://xat.me/202051162" target="_blank">
+      XAT.ME
+    </a>
+  </div>
+
+  <!-- FRIEND 5 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">ML</div>
+      <div class="friend-info">
+        <div class="friend-name">MyLoveLovee</div>
+        <div class="friend-id">707651438</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/707651438" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+
+    <!-- FRIEND 6 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">ANG</div>
+      <div class="friend-info">
+        <div class="friend-name">XANG3LiTAX </div>
+        <div class="friend-id">10346</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/10346" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+
+     <!-- FRIEND 7 -->
+  <div class="friend-item">
+    <div class="friend-left">
+      <div class="avatar">FB</div>
+      <div class="friend-info">
+        <div class="friend-name">xfabriciio</div>
+        <div class="friend-id">1537898900</div>
+      </div>
+    </div>
+
+    <a class="friend-btn" href="https://xat.me/1537898900" target="_blank">
+      XAT.ME
+    </a>
+  </div>  
+      </div>     
     </div>
 
   </div>
 </div>
 
-<!-- MODAL MARRIED -->
-<div class="modal-overlay" id="marriedModal">
-  <div class="modal-content">
-
-    <span class="modal-close" onclick="cerrarMarried()">×</span>
-
-    <div class="married-card">
-
-      <div class="avatar-wrap">
-        <div class="avatar">
-      <img src="https://xatimg.com/image/Kg8dj0YKZM9Y.jpg" alt="Pareja">
-        </div>
-        <div class="married-heart"><span>❤</span></div>
-      </div>
-
-  <div class="name">Warren</div>
-  <div class="id">1548738197</div>
-
-  <div class="message">
-    Eres la forma más bonita que ah tenido la vida que vale la pena arriesgarse a amar.
-  </div>
-
-  <div class="xatme">
-    <a href="https://xat.me/1548738197" target="_blank">XAT.ME</a>
-  </div>
 
 
     </div>
@@ -1648,80 +1585,11 @@ function cerrarGaleria(){
   document.getElementById("galeriaModal").classList.remove("active");
 }
 
-const canvas = document.getElementById("heartsCanvas");
-const ctx = canvas.getContext("2d");
-
-let w, h;
-function resize(){
-  w = canvas.width = window.innerWidth;
-  h = canvas.height = window.innerHeight;
-}
-resize();
-window.addEventListener("resize", resize);
-
-const hearts = [];
-const HEART_COUNT = 40;
-
-function createHeart(startTop = true){
-  return {
-    x: Math.random() * w,
-    y: startTop ? -30 : Math.random() * h,
-    size: 6 + Math.random() * 6,
-    speed: 0.25 + Math.random() * 0.6,
-    drift: (Math.random() - 0.5) * 0.2,
-    alpha: 0.12 + Math.random() * 0.25
-  };
-}
-
-/* Inicial */
-for(let i = 0; i < HEART_COUNT; i++){
-  hearts.push(createHeart(false));
-}
-
-function drawHeart(x, y, size, alpha, scaleX = 1.1, scaleY = 0.75){
-  ctx.save();
-  ctx.translate(x, y);
-
-  /* escala general + aplanado */
-  ctx.scale(size * scaleX, size * scaleY);
-
-  ctx.beginPath();
-  ctx.moveTo(0, 0);
-  ctx.bezierCurveTo(-0.5, -0.6, -1.4, 0.3, 0, 1.6);
-  ctx.bezierCurveTo(1.4, 0.3, 0.5, -0.6, 0, 0);
-  ctx.closePath();
-
-  ctx.fillStyle = `rgba(255, 215, 225, ${alpha})`;
-  ctx.fill();
-
-  ctx.restore();
-}
-
-
-function animate(){
-  ctx.clearRect(0, 0, w, h);
-
-  hearts.forEach((heart, i) => {
-    heart.y += heart.speed;
-    heart.x += heart.drift;
-
-    drawHeart(heart.x, heart.y, heart.size, heart.alpha);
-
-    /* CUANDO SALE DE PANTALLA → NUEVO DESDE ARRIBA */
-    if(heart.y > h + 40){
-      hearts[i] = createHeart(true);
-    }
-  });
-
-  requestAnimationFrame(animate);
-}
-
-animate();
 
 let songs = [
-  { name: "Benedetta Caretta - Me quedo contigo", url: "music/Benedetta Caretta - Me quedo contigo.mp3" },
-  { name: "Chris De Burgh - Lady In Red", url: "music/Chris De Burgh - Lady In Red.mp3" },
-  { name: "Claude Barzotti - Aime-moi", url: "music/Claude Barzotti - Aime-moi.mp3" }
+  { name: "Bad Bunny - Monaco", url: "music/Bad Bunny – MONACO.mp3" },
+  { name: "Bad Bunny - Te mudaste el ultimo tour del mundo", url: "music/BAD BUNNY - TE MUDASTE _ EL ÚLTIMO TOUR DEL MUNDO.mp3" },
+  { name: "Bad Bunny, Mora - Una Vez", url: "music/Bad Bunny, Mora - Una Vez.mp3" }
 ];
 
 let audio = new Audio();
@@ -1898,6 +1766,14 @@ document.addEventListener("mousemove", (e) => {
   cursor.style.transform =
     `translate(${e.clientX - offsetX}px, ${e.clientY - offsetY}px)`;
 });
+
+function abrirMarried(){
+  document.getElementById("marriedModal").classList.add("active");
+}
+
+function cerrarMarried(){
+  document.getElementById("marriedModal").classList.remove("active");
+}
 </script>
 
 </body>
